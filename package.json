@@ -1,0 +1,49 @@
+{
+  "name": "nextjs-shadcn-tailwind-template",
+  "version": "1.0.0",
+  "private": false,
+  "description": "Template moderno com Next.js 15, shadcn/ui, Tailwind CSS 4 e TypeScript",
+  "keywords": [
+    "nextjs",
+    "react",
+    "typescript",
+    "tailwindcss",
+    "shadcn-ui",
+    "template"
+  ],
+  "author": "Gabryel Kadmo <gabryel.kadmo@mx2tech.com.br>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GabryelKadmo/Template-NextJs-shadcn-tailwind"
+  },
+  "homepage": "https://github.com/GabryelKadmo/Template-NextJs-shadcn-tailwind",
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@radix-ui/react-slot": "^1.2.3",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.525.0",
+    "next": "15.3.4",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tailwind-merge": "^3.3.1"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "15.3.4",
+    "tailwindcss": "^4",
+    "tw-animate-css": "^1.3.4",
+    "typescript": "^5"
+  }
+}
