@@ -1,141 +1,184 @@
 "use client";
 
-import { Zap, Palette, Layers, FileCode, Sparkles, Code2, Rocket } from "lucide-react";
+import Image from "next/image";
+import { ArrowRight, Terminal, Code2, Sparkles } from "lucide-react";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-black flex items-center justify-center p-4 relative overflow-hidden">
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#1f1f1f_1px,transparent_1px),linear-gradient(to_bottom,#1f1f1f_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
-        <div className="absolute top-0 -left-4 w-96 h-96 bg-purple-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
-        <div className="absolute top-0 -right-4 w-96 h-96 bg-cyan-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute -bottom-8 left-20 w-96 h-96 bg-pink-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse" style={{ animationDelay: '4s' }}></div>
-        <div className="absolute top-1/4 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyan-500 to-transparent opacity-20"></div>
-        <div className="absolute top-2/4 left-0 right-0 h-px bg-gradient-to-r from-transparent via-purple-500 to-transparent opacity-20"></div>
-        <div className="absolute top-3/4 left-0 right-0 h-px bg-gradient-to-r from-transparent via-pink-500 to-transparent opacity-20"></div>
+    <div className="min-h-dvh bg-white dark:bg-black text-black dark:text-white relative overflow-hidden">
+      {/* Animated grid background */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-[0.03] dark:opacity-[0.05]">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `linear-gradient(to right, black 1px, transparent 1px), linear-gradient(to bottom, black 1px, transparent 1px)`,
+          backgroundSize: '60px 60px'
+        }}></div>
       </div>
 
-      <div className="max-w-5xl w-full relative z-10">
-        <div className="text-center space-y-6 mb-16">
-          <div className="flex justify-center">
-            <div className="relative group">
-              <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 via-cyan-600 to-pink-600 rounded-full blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
-              <div className="relative w-24 h-24 bg-black rounded-full flex items-center justify-center border border-gray-800">
-                <Rocket className="w-12 h-12 text-cyan-400" />
+      {/* Subtle gradient orbs */}
+      <div className="absolute top-0 left-1/4 w-150 h-150 bg-black dark:bg-white rounded-full mix-blend-multiply dark:mix-blend-difference filter blur-[120px] opacity-[0.03] dark:opacity-[0.08] animate-blob"></div>
+      <div className="absolute bottom-0 right-1/4 w-125 h-125 bg-black dark:bg-white rounded-full mix-blend-multiply dark:mix-blend-difference filter blur-[120px] opacity-[0.02] dark:opacity-[0.06] animate-blob animation-delay-2000"></div>
+
+      <div className="relative z-10">
+        {/* Hero - Centered and Bold */}
+        <div className="min-h-screen flex flex-col items-center justify-center px-8">
+          <div className="max-w-4xl w-full mx-auto space-y-16">
+            {/* Main Title */}
+            <div className="space-y-6">
+              <div className="flex flex-col gap-6">
+                <div className="flex items-center gap-4">
+                  <a
+                    href="https://www.kadmo.com.br/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 group"
+                  >
+                    <div className="relative w-10 h-10 rounded-xl overflow-hidden border border-black/10 dark:border-white/10 group-hover:border-black/30 dark:group-hover:border-white/30 transition-all duration-300">
+                      <Image
+                        src="/logo/Kadmo-logo-monke-no-bg.png"
+                        alt="Kadmo"
+                        fill
+                        className="object-contain p-1.5"
+                        priority
+                      />
+                    </div>
+                    <span className="text-sm font-medium tracking-tight hover:opacity-50 transition-opacity duration-300">KADMO</span>
+                  </a>
+
+                  <div className="w-px h-6 bg-current opacity-20"></div>
+
+                  <a
+                    href="https://github.com/GabryelKadmo"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm font-medium tracking-tight hover:opacity-50 transition-opacity duration-300"
+                  >
+                    GITHUB →
+                  </a>
+                </div>
+
+                <div className="flex items-center gap-2 text-xs tracking-[0.3em] uppercase font-medium opacity-40">
+                  <div className="w-8 h-px bg-current"></div>
+                  <span>Next.js Template</span>
+                </div>
+              </div>
+
+              <h1 className="text-[clamp(3rem,12vw,10rem)] font-black leading-[0.9] tracking-tighter">
+                BUILD<br />
+                FASTER
+              </h1>
+
+              <p className="text-xl md:text-2xl max-w-4xl opacity-60 leading-relaxed">
+                Um template minimalista e poderoso. Pronto para produção com Next.js 16, TypeScript e Tailwind CSS 4.
+              </p>
+            </div>
+
+
+            {/* Features List - Clean and Minimal */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-20 gap-y-12">
+              <div className="group">
+                <div className="flex items-start gap-4">
+                  <div className="mt-1">
+                    <div className="w-1 h-1 rounded-full bg-current opacity-40 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  </div>
+                  <div className="space-y-2">
+                    <h3 className="text-lg font-bold tracking-tight">Next.js 16</h3>
+                    <p className="text-sm opacity-60 leading-relaxed">
+                      App Router, Server Components, e performance otimizada out-of-the-box
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="group">
+                <div className="flex items-start gap-4">
+                  <div className="mt-1">
+                    <div className="w-1 h-1 rounded-full bg-current opacity-40 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  </div>
+                  <div className="space-y-2">
+                    <h3 className="text-lg font-bold tracking-tight">shadcn/ui</h3>
+                    <p className="text-sm opacity-60 leading-relaxed">
+                      Componentes acessíveis e customizáveis construídos com Radix UI
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="group">
+                <div className="flex items-start gap-4">
+                  <div className="mt-1">
+                    <div className="w-1 h-1 rounded-full bg-current opacity-40 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  </div>
+                  <div className="space-y-2">
+                    <h3 className="text-lg font-bold tracking-tight">Tailwind CSS 4</h3>
+                    <p className="text-sm opacity-60 leading-relaxed">
+                      Framework utility-first com performance e DX aprimorados
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="group">
+                <div className="flex items-start gap-4">
+                  <div className="mt-1">
+                    <div className="w-1 h-1 rounded-full bg-current opacity-40 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  </div>
+                  <div className="space-y-2">
+                    <h3 className="text-lg font-bold tracking-tight">TypeScript</h3>
+                    <p className="text-sm opacity-60 leading-relaxed">
+                      Type-safe, IntelliSense completo e melhor experiência de desenvolvimento
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* CTA - Minimalist */}
+            <div className="flex items-center gap-8 pt-8">
+              <div className="flex-1 h-px bg-current opacity-10"></div>
+              <a
+                href="https://github.com/GabryelKadmo/Template-NextJs-shadcn-tailwind"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-3 text-sm font-medium tracking-tight hover:opacity-50 transition-all duration-300"
+              >
+                <Terminal className="w-4 h-4" />
+                <span>COMEÇAR AGORA</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+              </a>
+              <div className="flex-1 h-px bg-current opacity-10"></div>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Section - Tech Stack */}
+        <div className="px-8 pb-16">
+          <div className="max-w-4xl mx-auto">
+            <div className="flex items-center justify-between py-8 border-t border-black/5 dark:border-white/5">
+              <div className="flex items-center gap-2 text-xs tracking-[0.2em] uppercase opacity-30">
+                <Code2 className="w-3 h-3" />
+                <span>Tech Stack</span>
+              </div>
+
+              <div className="flex items-center gap-8 text-xs font-medium tracking-wider">
+                <span className="opacity-40 hover:opacity-100 transition-opacity duration-300 cursor-default">NEXT.JS</span>
+                <span className="opacity-40 hover:opacity-100 transition-opacity duration-300 cursor-default">REACT</span>
+                <span className="opacity-40 hover:opacity-100 transition-opacity duration-300 cursor-default">TYPESCRIPT</span>
+                <span className="opacity-40 hover:opacity-100 transition-opacity duration-300 cursor-default">TAILWIND</span>
               </div>
             </div>
           </div>
+        </div>
 
-          <div className="space-y-4">
-            <h1 className="text-6xl md:text-7xl font-bold">
-              <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent animate-gradient">
-                Next.js Template
-              </span>
-            </h1>
-            <p className="text-gray-400 text-xl max-w-2xl mx-auto">
-              Template moderno e poderoso com as melhores tecnologias do mercado
+        {/* Footer */}
+        <footer className="px-8 pb-8">
+          <div className="max-w-4xl mx-auto flex justify-between items-center text-xs opacity-40">
+            <p>© {new Date().getFullYear()} Gabryel Kadmo.</p>
+            <p className="flex items-center gap-2">
+              <Sparkles className="w-3 h-3" />
+              <span>Pronto para produção</span>
             </p>
-            <div className="flex justify-center gap-3 flex-wrap">
-              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium bg-gradient-to-r from-cyan-500/10 to-purple-500/10 text-cyan-400 border border-cyan-500/20">
-                <Sparkles className="w-4 h-4" />
-                Pronto para usar
-              </span>
-              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium bg-gradient-to-r from-purple-500/10 to-pink-500/10 text-purple-400 border border-purple-500/20">
-                <Code2 className="w-4 h-4" />
-                TypeScript
-              </span>
-            </div>
           </div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="group relative">
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-cyan-600 to-blue-600 rounded-2xl blur opacity-30 group-hover:opacity-60 transition duration-300"></div>
-            <div className="relative bg-gray-900/90 backdrop-blur-sm rounded-2xl p-6 border border-gray-800 hover:border-cyan-500/50 transition-all duration-300">
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-xl flex items-center justify-center">
-                  <Zap className="w-6 h-6 text-white" />
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-xl font-bold text-white mb-2">Next.js 16</h3>
-                  <p className="text-gray-400 text-sm mb-3">Framework React mais avançado com App Router e Server Components</p>
-                  <div className="flex flex-wrap gap-2">
-                    <span className="text-xs px-2 py-1 rounded-md bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">SSR</span>
-                    <span className="text-xs px-2 py-1 rounded-md bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">ISR</span>
-                    <span className="text-xs px-2 py-1 rounded-md bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">App Router</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="group relative">
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl blur opacity-30 group-hover:opacity-60 transition duration-300"></div>
-            <div className="relative bg-gray-900/90 backdrop-blur-sm rounded-2xl p-6 border border-gray-800 hover:border-purple-500/50 transition-all duration-300">
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center">
-                  <Palette className="w-6 h-6 text-white" />
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-xl font-bold text-white mb-2">shadcn/ui</h3>
-                  <p className="text-gray-400 text-sm mb-3">Componentes reutilizáveis e acessíveis construídos com Radix UI</p>
-                  <div className="flex flex-wrap gap-2">
-                    <span className="text-xs px-2 py-1 rounded-md bg-purple-500/10 text-purple-400 border border-purple-500/20">Acessível</span>
-                    <span className="text-xs px-2 py-1 rounded-md bg-purple-500/10 text-purple-400 border border-purple-500/20">Customizável</span>
-                    <span className="text-xs px-2 py-1 rounded-md bg-purple-500/10 text-purple-400 border border-purple-500/20">Radix UI</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="group relative">
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-emerald-600 to-teal-600 rounded-2xl blur opacity-30 group-hover:opacity-60 transition duration-300"></div>
-            <div className="relative bg-gray-900/90 backdrop-blur-sm rounded-2xl p-6 border border-gray-800 hover:border-emerald-500/50 transition-all duration-300">
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-xl flex items-center justify-center">
-                  <Layers className="w-6 h-6 text-white" />
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-xl font-bold text-white mb-2">Tailwind CSS 4</h3>
-                  <p className="text-gray-400 text-sm mb-3">Framework CSS utility-first para desenvolvimento rápido e responsivo</p>
-                  <div className="flex flex-wrap gap-2">
-                    <span className="text-xs px-2 py-1 rounded-md bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Responsivo</span>
-                    <span className="text-xs px-2 py-1 rounded-md bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Dark Mode</span>
-                    <span className="text-xs px-2 py-1 rounded-md bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">JIT</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="group relative">
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl blur opacity-30 group-hover:opacity-60 transition duration-300"></div>
-            <div className="relative bg-gray-900/90 backdrop-blur-sm rounded-2xl p-6 border border-gray-800 hover:border-blue-500/50 transition-all duration-300">
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-xl flex items-center justify-center">
-                  <FileCode className="w-6 h-6 text-white" />
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-xl font-bold text-white mb-2">TypeScript</h3>
-                  <p className="text-gray-400 text-sm mb-3">Superset do JavaScript com tipagem estática para código mais seguro</p>
-                  <div className="flex flex-wrap gap-2">
-                    <span className="text-xs px-2 py-1 rounded-md bg-blue-500/10 text-blue-400 border border-blue-500/20">Type Safe</span>
-                    <span className="text-xs px-2 py-1 rounded-md bg-blue-500/10 text-blue-400 border border-blue-500/20">IntelliSense</span>
-                    <span className="text-xs px-2 py-1 rounded-md bg-blue-500/10 text-blue-400 border border-blue-500/20">ES2024</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="mt-16 text-center">
-          <div className="inline-flex items-center gap-2 text-gray-500 text-sm">
-            <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
-            <span>Basta limpar o arquivo page.tsx e começar a desenvolver</span>
-          </div>
-        </div>
+        </footer>
       </div>
     </div>
   );
